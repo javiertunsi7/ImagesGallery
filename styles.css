@@ -1,4 +1,4 @@
-/* ===== ESTILOS GENERALES ===== */
+/*ESTILOS GENERALES*/
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@ body {
     margin: 0 auto;
 }
 
-/* ===== HEADER ===== */
+/*HEADER*/
 .header {
     text-align: center;
     margin-bottom: 30px;
@@ -34,14 +34,14 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* ===== GRID PRINCIPAL ===== */
+/*GRID PRINCIPAL - DESKTOP (4 columnas)*/
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
 
-/* ===== ITEMS DEL GRID ===== */
+/*ITEMS DEL GRID*/
 .item {
     background: white;
     padding: 20px;
@@ -57,8 +57,9 @@ body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
+/* ✅ CORREGIDO: Elementos grandes ocupan 2 columnas en desktop */
 .item.big {
-    grid-column: span 1;
+    grid-column: span 2;
 }
 
 .item h2 {
@@ -68,7 +69,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* ===== CONTENEDOR DE IMÁGENES ===== */
+/*CONTENEDOR DE IMÁGENES*/
 .image-container {
     width: 100%;
     height: 180px;
@@ -78,7 +79,7 @@ body {
     border: 2px solid #f0f0f0;
 }
 
-/* ===== IMÁGENES REALES ===== */
+/*IMÁGENES REALES*/
 .game-image {
     width: 100%;
     height: 100%;
@@ -86,10 +87,74 @@ body {
     display: block;
 }
 
-/* ===== PLACEHOLDER PARA IMÁGENES FALTANTES ===== */
+/*PLACEHOLDER PARA IMÁGENES FALTANTES*/
 .image-placeholder {
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1976D2;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
+/*RESPONSIVE DESIGN*/
+
+/* 📱 TABLET (1024px o menos) - 3 columnas */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .item.big {
+        grid-column: span 2;
+    }
+}
+
+/*TABLET PEQUEÑA (768px o menos) - 2 columnas */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .item.big {
+        grid-column: span 2;
+    }
+    
+    .image-container {
+        height: 160px;
+    }
+    
+    .header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/*MOVIL (480px o menos) - 1 columna*/
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .item.big {
+        grid-column: span 1;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .image-container {
+        height: 140px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    .item {
+        padding: 15px;
+    }
+}
